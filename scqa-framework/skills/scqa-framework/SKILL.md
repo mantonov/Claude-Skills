@@ -14,13 +14,56 @@ Your task is to structure information so the most important insight leads, not t
 
 ## Step 0: Clarify Before You Draft
 
-Before writing anything, ask the user these questions (you can ask them together in one message):
+Before writing anything, use the **AskUserQuestion tool** three times to gather context via interactive forms. Do NOT ask these as plain text questions — always use the tool.
 
-1. **Who is the audience?** (e.g., your direct team, a cross-functional group, C-suite, board, external stakeholders) — this shapes tone, how much context to include, and which ordering to use.
-2. **What is this for?** (e.g., email, Slack message, strategy memo, presentation narrative, 1:1 update) — this shapes format and length.
-3. **Full document or 1-pager?** — A full SCQA document includes an Appendix and detailed supporting points. A 1-pager strips it down to essentials and fits on a single page. Ask: *"Do you want a full structured document, or a tight 1-pager you can share directly?"*
+**Call 1 — Audience**
+```
+AskUserQuestion(
+  question: "Who is the audience for this communication?",
+  type: "multiselect",
+  options: [
+    "Direct team",
+    "Cross-functional group",
+    "C-suite / Executives",
+    "Board",
+    "External stakeholders",
+    "Investors",
+    "Mixed / Multiple audiences"
+  ]
+)
+```
 
-If the user has already provided enough context to answer these, skip the question and proceed — but note your assumptions briefly.
+**Call 2 — Format / Medium**
+```
+AskUserQuestion(
+  question: "What format is this communication?",
+  type: "multiselect",
+  options: [
+    "Email",
+    "Slack message",
+    "Strategy memo",
+    "Presentation narrative",
+    "1:1 update",
+    "Executive brief",
+    "Product brief",
+    "Status update"
+  ]
+)
+```
+
+**Call 3 — Document length**
+```
+AskUserQuestion(
+  question: "How much detail do you need?",
+  type: "select",
+  options: [
+    "Full structured document (with Appendix and supporting detail)",
+    "Tight 1-pager (shareable, ~300–400 words, no Appendix)"
+  ]
+)
+```
+
+**Important:** If the user has already provided enough context to answer any of these, skip that specific call and note your assumption briefly. Only ask what you genuinely don't know.
 
 ---
 
