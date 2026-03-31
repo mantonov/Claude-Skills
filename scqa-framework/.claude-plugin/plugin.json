@@ -1,0 +1,8 @@
+{
+  "name": "scqa-framework",
+  "version": "0.1.0",
+  "description": "Structure business communication using the SCQA framework",
+  "author": {
+    "name": "mantonov"
+  }
+}
